@@ -8,7 +8,7 @@ from .classifier import predict, First
 
 model_path = 'app/model/model.pth'
 preload = First(model_path)
-urlPattern = r'https:\/\/www.reddit.com\/r\/india\/\S+'
+urlPattern = r'https:\/\/www.reddit.com\/r\/india\/comments\/\S+'
 reddit = praw.Reddit(client_id = 'k2akqxbdeejOWw',
                     client_secret='fZtXNfuqoOv9LSjUZVEMO2vY2wc',
                      user_agent='Scrapper')
@@ -26,6 +26,7 @@ def processURL(url):
     print('0')
     scraped = scrape(url, reddit)
     if scraped == None:
+        print('*')
         return None
     print('1')
     text = preProcess(scraped)

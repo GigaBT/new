@@ -14,10 +14,10 @@ def scrape(url, reddit):
         dictionary object containing title, author, post's selftext, top 10 comments.
     """
     post = reddit.submission(url = url)
-    headline = post.title
-    postBody = post.selftext
-
-    if not (headline and postBody):
+    try:
+        headline = post.title
+        postBody = post.selftext
+    except:
         return None
 
     return {'headline':headline,
