@@ -1,3 +1,0 @@
-from Flair_Detector.wsgi import application
-
-app = application
